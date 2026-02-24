@@ -28,5 +28,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftp
           port: 21
+          security: loose
+          passive: true
           local-dir: ./${{ matrix.folder }}/
           server-dir: /httpdocs/${{ matrix.folder }}/
