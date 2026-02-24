@@ -1,0 +1,68 @@
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'api_go365/**'
+      - 'api_superb/**'
+      - 'api_2UCenter/**'
+      - 'api_TTN_Pluss/**'
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # api_go365
+      - name: Deploy api_go365
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          security: loose
+          local-dir: ./api_go365/
+          server-dir: /httpdocs/api_go365/
+
+      # api_superb
+      - name: Deploy api_superb
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          security: loose
+          local-dir: ./api_superb/
+          server-dir: /httpdocs/api_superb/
+
+      # api_2UCenter
+      - name: Deploy api_2UCenter
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          security: loose
+          local-dir: ./api_2UCenter/
+          server-dir: /httpdocs/api_2UCenter/
+
+      # api_TTN_Pluss
+      - name: Deploy api_TTN_Pluss
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          security: loose
+          local-dir: ./api_TTN_Pluss/
+          server-dir: /httpdocs/api_TTN_Pluss/
