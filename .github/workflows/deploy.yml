@@ -13,6 +13,7 @@ jobs:
   ftp-deploy:
     runs-on: ubuntu-latest
     strategy:
+      max-parallel: 1
       matrix:
         folder: [api_go365, api_superb, api_2UCenter, api_TTN_Pluss]
 
@@ -27,6 +28,5 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftp
           port: 21
-          security: loose
           local-dir: ./${{ matrix.folder }}/
           server-dir: /httpdocs/${{ matrix.folder }}/
