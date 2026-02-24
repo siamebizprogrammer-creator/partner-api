@@ -3,11 +3,12 @@ date_default_timezone_set("Asia/Bangkok");
 function connectDB(): mysqli
 {
     // saimebiz1
-    //$host = 'localhost';
-    //$user = 'siamebiz_prod';
-    //$password = '8x9j7y?1K';
-    //$database = 'siamebiz1_db';
-    // $port = '3306';
+    $host = 'localhost';
+    $user = 'siamebiz_prod';
+    $password = '8x9j7y?1K';
+    $database = 'siamebiz1_db';
+    $port = '3306';
+
     // teawnaidee
     // $host = 'localhost';
     // $user = 'teawnaid_db';
@@ -15,11 +16,11 @@ function connectDB(): mysqli
     // $database = 'teawnaid_db';
 
     // test localhost
-    $host = 'host.docker.internal';
-    $user = 'root';
-    $password = 'root';
-    $database = 'siamebiz1_db';
-    $port = '3307';
+    //$host = 'host.docker.internal';
+    //$user = 'root';
+    //$password = 'root';
+    //$database = 'siamebiz1_db';
+    //$port = '3307';
 
     $conn = new mysqli($host, $user, $password, $database, $port);
 
